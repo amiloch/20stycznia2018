@@ -1,0 +1,215 @@
+EX1
+
+Feature
+Jako u¿ytkownik codewars chce móc wybraæ interesuj¹cy mnie kurs ¿eby dostaæ zadania do wykonania.
+
+Background
+Given jako u¿ytkownik mam dostêp do strony https://www.codewars.com/
+And istnieje okno wyboru kursu (Clojure,
+C, C++, C#, Crystal, Dart, Elixir, F#, Go, Haskell, Java, JavaScript, PHP,
+Python, Ruby, Rust, Shell, SQL, Swift, TypeScript)
+
+
+Scenerio Dostêpnoœæ kursów
+Given jestem na stronie https://www.codewars.com/
+When sprawdzam poprawnoœæ wyœwietlenia kursów
+Then widzê 'kursy': 
+        |Clojure   | 
+	|C         | 
+	|C++       | 
+	|C#        | 
+	|Crystal   | 
+	|Dart      | 
+	|Elixir    | 
+	|F#        | 
+	|Go        | 
+	|Haskell   | 
+	|Java      |
+	|JavaScript| 
+	|PHP       |
+	|Python    | 
+	|Ruby      | 
+	|Rust      | 
+	|Shell     | 
+	|SQL       | 
+	|Swift     | 
+	|TypeScript|
+
+scenerio Prawid³owy Jêzyk
+Given jestem na stronie https://www.codewars.com/
+When wybieram kurs C
+Then otwiera sie okno z interaktywnym zadaniem w jêzyku C 
+
+scenerio 2
+Given jestem na stronie https://www.codewars.com/
+When wybieram kurs C++
+Then otwiera sie okno z interaktywnym zadaniem w jêzyku C++ 
+
+scenerio 3
+Given jestem na stronie https://www.codewars.com/
+When wybieram kurs C#
+Then otwiera sie okno z interaktywnym zadaniem w jêzyku C# 
+
+
+scenerio 4 Interaktywnoœæ
+Given wybralam jêzyk C
+And otwiera siê formularz  c
+When rozwi¹zujê prawid³owo zadanie
+And klikam submit
+Then uzyskuje potwierdzenie rozwi¹zania
+
+EX2
+Feature
+Jako u¿ytkownik, chcê mieæ mo¿liwoœæ zapisania do newslettera, aby byæ na bie¿¹co informowany na temat aktualnych promocji apteki
+
+Background
+Given jako u¿ytkownik mam dostêp do https://www.doz.pl/
+And na stronie jest pole z napisem "Zostaw email" 
+And istnieje przycisk "Zapisz mnie"
+
+
+Scenario prawid³owy widok
+Given jestem na stronie https://www.doz.pl/
+And zjecha³am na dó³ strony
+When sprawdzam poprawnoœæ obecnoœci na stronie pola z napisem "Zostaw email" 
+And przycisk "zapisz mnie"
+Then widzê na stronie pole tekstowe z napisem "Zostaw mnie" 
+And przycisk "Zapisz mnie"
+
+
+Scenario Prawid³owy mail
+Given jestem na stronie https://www.doz.pl/
+And zjecha³am na dó³ strony
+When w pole "Zostaw email" wpisujê poprawny adres mailowy
+And klikam w przycisk "Zapisz siê"
+Then otwiera siê nowy widok z komunikatem informuj¹cym o wys³aniu linka aktywacyjnego
+
+Scenario puste pole text area
+Given jestem na stronie https://www.doz.pl/
+And zjecha³am na dó³ strony
+when pole "zostaw email" pozostawiam puste
+And klikam przycisk "Zapisz mnie"
+Then pojawia siê komunikat o treœci “Formularz zawiera b³êdy. SprawdŸ
+poprawnoœæ danych.
+
+
+ZADANIA CZÊŒÆ II
+
+Ex1
+Feature
+Jako u¿ytkownik codeacademy chcê mieæ mo¿liwoœæ filtrowania w katalogu
+dostêpnych kursów aby szybciej znaleŸæ interesuj¹cy mnie kurs.
+
+Background
+Given jako u¿ytkownik jestem na stronie https://www.codecademy.com/catalog
+
+Scenerio  Filtrowanie po katalogu
+
+Given jestem na stronie https://www.codecademy.com/catalog
+when klikam <Subject>
+Then
+|Subcject       |
+|Full catalog   | 
+|Web Development| 
+|Data Sciencie  |
+|Partnership    |
+|Disign         |
+
+Scenario Filtrowanie po jêzyku
+Given jestem na stronie https://www.codecademy.com/catalog
+when klikam <language>
+then <results>
+
+|languge   |results|
+|HTML & CSS| Learn HTML, Learn CSS, Make a Website,Deploy a Website, Learn Sass, Learn Responsive Design|
+|Python    | Learn Python|
+|JavaScript| Introduction to JavaScript, Learn AngularJS 1.X, Learn ReactJS: Part I, Learn RectJS: PartII, Introduction to jQery, Learn Node-SQLite, Learn Express|
+|Java      |Learn Java|
+|SQL       | Learn SQL, SQL:Table Transformation, SQL: Analyzing Business Matrics}
+|Bash/Shell| Learn the Command Line, Learn Git|
+|Ruby      |Learn Rubby, Learn Ruby on Rails, Ruby on Rails: Authentication|
+
+Scenerio outline Filtrowanie po katalogu
+
+Given jestem na stronie https://www.codecademy.com/catalog
+when klikam <Subject>
+Then <results>
+|Subcject       |  results                                                   | 
+|Full catalog   | https://www.codecademy.com/catalog/subject/all             | 
+|Web Development| https://www.codecademy.com/catalog/subject/web-development |
+|Programming    | https://www.codecademy.com/catalog/subject/programming     |
+|Data Science   | https://www.codecademy.com/catalog/subject/data-science    |
+|Partnership    | https://www.codecademy.com/catalog/subject/partnerships    |
+|Disign         | https://www.codecademy.com/catalog/subject/design          |
+
+
+ZADANIA CZÊŒÆ II
+
+Ex1
+Feature
+Jako u¿ytkownik codeacademy chcê mieæ mo¿liwoœæ filtrowania w katalogu dostêpnych kursów aby szybciej znaleŸæ interesuj¹cy mnie kurs.
+
+Background
+Given jako u¿ytkownik jestem na stronie https://www.codecademy.com/catalog
+And mam dostêpne opcje filtrowania
+        |filtr    |opcje                                                                     |
+        |jêzyk    | HTML & CSS, Python, JavaScript, Java, SQL, Bash/Shell, Ruby              |
+        |subjetct |Full catalog, Web Development, Data Sciencie, Partnership, Disign         |
+
+Scenario strona domyœlna
+Given jestem na stronie https://www.codecademy.com
+And klikam "catalog"
+When otwiera siê strona https://www.codecademy.com/catalog
+Then Opcja "Web Development" jest domyœlnie zaznaczona
+
+Scenario outline: kategorie filtrow
+Given jestem na stronie https://www.codecademy.com/catalog
+When przegl¹dam kategorie filrowania po temacie <subject> i po jêzyku <language>
+Then widzê na stronie 'filtr'
+And 'opcje' 
+
+        |filtr    |opcje                                                                     |
+        |jêzyk    | HTML & CSS, Python, JavaScript, Java, SQL, Bash/Shell, Ruby              |
+        |subjetct |Full catalog, Web Development, Data Sciencie, Partnership, Disign         |
+
+
+
+Feature
+nie mo¿na wybraæ kilku kategorii jednoczeœnie
+
+Scenario outline Filtrowanie po jêzyku wybór dwóch jêzyków
+Given jestem na stronie https://www.codecademy.com/catalog
+when klikam <choose 1> 
+And klikam <choose 2>
+then <results>
+
+|choose 1   | choose 2      | results                                                                                    |
+|Python     |HTML & CSS     | Learn HTML, Learn CSS, Make a Website,Deploy a Website, Learn Sass, Learn Responsive Design|
+|JavaScript |Python         | Learn Python                                                                               |
+|Java       |JavaScript     | Introduction to JavaScript, Learn AngularJS 1.X, Learn ReactJS: Part I, Learn RectJS: PartII, Introduction to jQery, Learn Node-SQLite, Learn Express|
+|SQL        |Java           | Learn Java                                                                                 |
+|Bash/Shell |SQL            | Learn SQL, SQL:Table Transformation, SQL: Analyzing Business Matrics                       |
+|Ruby       |Bash/Shell     | Learn the Command Line, Learn Git                                                          |
+|HTML & CSS |Ruby           | Learn Rubby, Learn Ruby on Rails, Ruby on Rails: Authentication                            |
+|HTML & CSS |Full catalog   | https://www.codecademy.com/catalog/subject/all                                             |  
+|Python     |Web Development| https://www.codecademy.com/catalog/subject/web-development                                 | 
+|JavaScript |Programming    | https://www.codecademy.com/catalog/subject/programming                                     | 
+|Java       |Data Science   | https://www.codecademy.com/catalog/subject/data-science                                    |
+|SQL        |Partnership    | https://www.codecademy.com/catalog/subject/partnerships                                    | 
+|Bash/Shell |Disign         | https://www.codecademy.com/catalog/subject/design                                          |
+
+Scenario outline odznaczanie
+Given jestem na stroneie https://www.codecademy.com/catalog
+When klikam <language> 
+And klikam <language1>
+Then <results>
+
+|language    |languge 1 | |results                                                                                   |
+|HTML & CSS  |HTML & CSS| Learn HTML, Learn CSS, Make a Website,Deploy a Website, Learn Sass, Learn Responsive Design|
+|Python      |Python    | Learn Python                                                                               |
+|JavaScript  |JavaScript| Introduction to JavaScript, Learn AngularJS 1.X, Learn ReactJS: Part I, Learn RectJS: PartII, Introduction to jQery, Learn Node-SQLite, Learn Express|
+|Java        |Java      | Learn Java                                                                                 |
+|SQL         |SQL       | Learn SQL, SQL:Table Transformation, SQL: Analyzing Business Matrics                       |
+|Bash/Shell  |Bash/Shell| Learn the Command Line, Learn Git                                                          |
+|Rubby       |Ruby      | Learn Rubby, Learn Ruby on Rails, Ruby on Rails: Authentication                            |
+
